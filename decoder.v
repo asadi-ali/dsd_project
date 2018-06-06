@@ -6,7 +6,7 @@ module decoder(
 	instruction_in,
 	instruction_out,
 	start_for_memory,
-	ready_for_memory
+	ready_for_memory,
 );
 	parameter byte = 8;
 	parameter width_in = 4 * byte;
@@ -15,14 +15,13 @@ module decoder(
 	parameter WAIT = 2'b00;
 	parameter RUNNING = 2'b01;
 	parameter SENDING = 2'b10;
-	parameter DONE = 2'b11;
 
 	input clk;
 	input reset;
 	input start;
 	output reg ready;
-	input [width_in-1:0] instruction_in;
-	output reg [width_out-1:0] instruction_out;
+	input [width_in - 1:0] instruction_in;
+	output reg [width_out - 1:0] instruction_out;
 	output reg start_for_memory;
 	input ready_for_memory;
 
@@ -36,7 +35,7 @@ module decoder(
 	
 	always @(posedge clk) 
 	begin 
-		if (reset)
+		if (!reset)
 			state <= WAIT;
 		else
 			state <= next_state;
@@ -48,7 +47,6 @@ module decoder(
 		case (state)
 		WAIT:
 		begin
-			counter = 0;
 			if (start)
 				next_state = RUNNING;
 		end
@@ -57,17 +55,12 @@ module decoder(
 			if (send) 
 				next_state = SENDING;
 			else if(done)
-				next_state = DONE;
+				next_state = WAIT;
 		end
 		SENDING:
 		begin
 			if(!send)
 				next_state = RUNNING;
-		end
-		DONE:
-		begin
-			if(ready)
-				next_state = WAIT;
 		end
 		endcase
 	end
@@ -78,7 +71,7 @@ module decoder(
 		WAIT:
 		begin
 			done = 0;
-			ready = 0;
+			ready = 1;
 			send = 0;
 			start_for_memory = 0;
 			instruction_out = 0;
@@ -86,7 +79,8 @@ module decoder(
 		end
 		RUNNING:
 		begin
-			case(instruction_in[width_in-1:width_in-1-byte])
+			ready = 0;
+			case(instruction_in[width_in - 1:width_in - byte])
 			8'b10010001: //i2b
 			begin
 				if (counter == 0)
@@ -116,10 +110,6 @@ module decoder(
 				else
 					start_for_memory = 1;
 			end
-		end
-		DONE:
-		begin
-			ready = 1;
 		end
 		endcase
 	end
