@@ -1,4 +1,4 @@
-module state_machine(clk, reset, ready_from_decoder, start_for_decoder, data_from_memory, data_for_decoder);
+module state_machine(clk, reset, pointer, ready_from_decoder, start_for_decoder, data_from_memory, data_for_decoder);
 
 parameter size_for_fetch = 8;
 parameter size_for_out_bus = 32;
@@ -10,8 +10,8 @@ input clk, ready_from_decoder, reset;
 input [size_for_fetch - 1:0] data_from_memory;
 output reg start_for_decoder;
 output reg [size_for_out_bus - 1:0] data_for_decoder;
+output reg [size_of_pointer - 1:0] pointer = 9'b000000001;
 
-reg [size_of_pointer - 1:0] pointer = 9'b000000001;
 reg [size_of_state - 1:0] state = 0;
 
 integer counter = 0;
