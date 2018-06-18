@@ -5,7 +5,16 @@ module state_machine(
 	start_for_decoder, 
 	pointer_for_memory, 
 	data_from_memory, 
-	data_for_decoder
+	data_for_decoder,
+	
+	
+	
+	memory_pointer,
+	state,
+	next_state,
+	data,
+	read_opcode,
+	send
 );
 
 	parameter byte = 8;
@@ -21,17 +30,17 @@ module state_machine(
 	input reset;
 	input ready_from_decoder;
 	output reg start_for_decoder;
-	output reg [memory_size-1:0] pointer_for_memory;
-	input [width_in-1:0] data_from_memory;
-	output reg [width_out-1:0] data_for_decoder;
+	output reg [memory_size - 1:0] pointer_for_memory;
+	input [width_in - 1:0] data_from_memory;
+	output reg [width_out - 1:0] data_for_decoder;
 
-	reg [memory_size:0] memory_pointer;
-	reg [1:0] state;
-	reg [1:0] next_state;
+	output reg [memory_size:0] memory_pointer;
+	output reg [1:0] state;
+	output reg [1:0] next_state;
 	
-	reg [width_out-1:0] data;
-	reg read_opcode;
-	reg send;
+	output reg [width_out - 1:0] data;
+	output reg read_opcode;
+	output reg send;
 
 
 	always @(posedge clk)
@@ -67,7 +76,7 @@ module state_machine(
 				if (ready_from_decoder)
 				begin
 					pointer_for_memory = memory_pointer;
-					data[width_out-1:width_out-byte] = data_from_memory;
+					data[width_out - 1:width_out - byte] = data_from_memory;
 				end
 			end
 			SEND:

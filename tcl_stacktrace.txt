@@ -1,0 +1,112 @@
+Wed Jun 06 17:41:12 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "Project::create" line 159)
+    invoked from within
+"Project::create $Project(dlg_proj_location) $Project(CurProj_NewName) $Project(dlg_proj_libname) $Project(dlg_initial_ini) $Project(dlg_ini_copy)"
+    (procedure "Project::applyCreate" line 3)
+    invoked from within
+"Project::applyCreate .pcd"
+    invoked from within
+".pcd.bb.button0 invoke"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list $w invoke]"
+    (procedure "tk::ButtonUp" line 24)
+    invoked from within
+"tk::ButtonUp .pcd.bb.button0"
+    (command bound to event)
+  <2:C:/altera_lite/15.1/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 06 18:12:07 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:C:/altera_lite/15.1/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 06 18:12:19 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:C:/altera_lite/15.1/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 06 18:14:22 +0430 2018
+Trace back: can't read "Project(ForceSoftPaths)": no such element in array
+    while executing
+"if {$Project(ForceSoftPaths)} {
+		set new_file_name [SoftenPath $new_file_name]
+	} "
+    (procedure "Project::addFile" line 55)
+    invoked from within
+"Project::addFile $name [MtiFS::TypeFromLabel $Project(dlg_create_type)] $Project(dlg_create_folder) 1"
+    (procedure "Project::applyCreateSrcFile" line 50)
+    invoked from within
+"Project::applyCreateSrcFile .creates 0"
+    invoked from within
+".creates.bb.button0 invoke"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel #0 [list $w invoke]"
+    (procedure "tk::ButtonUp" line 24)
+    invoked from within
+"tk::ButtonUp .creates.bb.button0"
+    (command bound to event)
+  <2:C:/altera_lite/15.1/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(ForceSoftPaths)": no such element in array}
+  <1:proc:70: ::tk::dialog::error::bgerror {can't read "Project(ForceSoftPaths)": no such element in array}
+Wed Jun 06 18:15:19 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:C:/altera_lite/15.1/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 06 18:45:33 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:C:/intelFPGA/17.0/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Wed Jun 06 18:46:10 +0430 2018
+Trace back: can't read "Project(EchoCompileOutput)": no such element in array
+    while executing
+"lappend ProjectWriteArgs	$Project(EchoCompileOutput)"
+    (procedure "Project::saveProjectSpecificSettings" line 26)
+    invoked from within
+"Project::saveProjectSpecificSettings"
+    (procedure "quit" line 58)
+    invoked from within
+"quit"
+    (command for "WM_DELETE_WINDOW" window manager protocol)
+  <2:C:/intelFPGA/17.0/modelsim_ase/win32aloem/tk8.5/bgerror.tcl:92: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
+  <1:proc:137: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
