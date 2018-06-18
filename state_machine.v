@@ -3,7 +3,6 @@ module state_machine(
 	reset, 
 	ready_from_decoder, 
 	start_for_decoder, 
-	pointer_for_memory, 
 	data_from_memory, 
 	data_for_decoder,
 	
@@ -30,19 +29,12 @@ module state_machine(
 	input reset;
 	input ready_from_decoder;
 	output reg start_for_decoder;
-	output reg [memory_size - 1:0] pointer_for_memory;
 	input [width_in - 1:0] data_from_memory;
 	output reg [width_out - 1:0] data_for_decoder;
 
-<<<<<<< HEAD
-	output reg [memory_size:0] memory_pointer;
+	output reg [memory_size - 1:0] memory_pointer;
 	output reg [1:0] state;
 	output reg [1:0] next_state;
-=======
-	reg [memory_size-1:0] memory_pointer;
-	reg [1:0] state;
-	reg [1:0] next_state;
->>>>>>> 2849c13e34ba0b528775e2dfa2a02a40bf012b2a
 	
 	output reg [width_out - 1:0] data;
 	output reg read_opcode;
@@ -59,11 +51,15 @@ module state_machine(
 			data_for_decoder <= 0;
 		end
 		else 
+		begin
 			state <= next_state;
+			read_opcode = 1;
+		end
 	end
 
 	always @(*)
 	begin
+		next_state = state;
 		case (state)
 			READ_OPCODE:
 			begin
@@ -83,16 +79,16 @@ module state_machine(
 		case (state)
 			READ_OPCODE:
 			begin
+				read_opcode = 0;
 				send = 0;
 				if (ready_from_decoder)
 				begin
-					pointer_for_memory = memory_pointer;
 					data[width_out - 1:width_out - byte] = data_from_memory;
 				end
 			end
 			SEND:
 			begin
-				read_opcode = 0;
+				read_opcode = 1;
 				start_for_decoder = 1;
 				data_for_decoder = data;
 				send = 1;

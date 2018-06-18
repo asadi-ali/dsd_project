@@ -3,6 +3,7 @@ module decoderTB;
 	parameter byte = 8;
 	parameter width_in = 4 * byte;
 	parameter width_out = 4 * byte;
+	parameter address_size = 16;
 	
 	reg clk;
 	reg reset;
@@ -11,7 +12,7 @@ module decoderTB;
 	reg [width_in - 1:0] instruction_in;
 	wire [width_out - 1:0] instruction_out;
 	wire start_for_memory;
-	reg ready_for_memory;
+	wire [address_size - 1:0] address_for_memory;
 	
 	wire [2:0] counter;
 	wire [1:0] state;
@@ -27,7 +28,7 @@ module decoderTB;
 		.instruction_in(instruction_in),
 		.instruction_out(instruction_out),
 		.start_for_memory(start_for_memory),
-		.ready_for_memory(ready_for_memory),
+		.address_for_memory(address_for_memory),
 		
 		
 		
@@ -46,11 +47,11 @@ module decoderTB;
 	initial
 	begin
 	
-		#15 reset = 1; start = 1; instruction_in = 32'h03000000; ready_for_memory = 1; // iconst_0
+		#15 reset = 1; start = 1; instruction_in = 32'h03000000; // iconst_0
 		
-		#50 start = 0; instruction_in = 32'h04000000; ready_for_memory = 0; // iconst_1
+		#50 start = 0; instruction_in = 32'h04000000; // iconst_1
 		
-		#5 ready_for_memory = 1; start = 1;
+		#5 start = 1;
 		
 		#20 reset = 0;
 		

@@ -6,8 +6,7 @@ module decoder(
 	instruction_in,
 	instruction_out,
 	start_for_memory,
-<<<<<<< HEAD
-	ready_for_memory,
+	address_for_memory,
 	
 	
 	
@@ -16,10 +15,8 @@ module decoder(
 	next_state,
 	send,
 	done
-=======
-	address_for_memory
->>>>>>> 2849c13e34ba0b528775e2dfa2a02a40bf012b2a
 );
+
 	parameter byte = 8;
 	parameter width_in = 2 * byte;
 	parameter width_out = 4 * byte;
@@ -36,7 +33,7 @@ module decoder(
 	input [width_in - 1:0] instruction_in;
 	output reg [width_out - 1:0] instruction_out;
 	output reg start_for_memory;
-	output reg [address_size-1:0] address_for_memory;
+	output reg [address_size - 1:0] address_for_memory;
 
 	output reg [2:0] counter;
 	output reg [1:0] state;
