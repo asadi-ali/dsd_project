@@ -34,9 +34,15 @@ module state_machine(
 	input [width_in - 1:0] data_from_memory;
 	output reg [width_out - 1:0] data_for_decoder;
 
+<<<<<<< HEAD
 	output reg [memory_size:0] memory_pointer;
 	output reg [1:0] state;
 	output reg [1:0] next_state;
+=======
+	reg [memory_size-1:0] memory_pointer;
+	reg [1:0] state;
+	reg [1:0] next_state;
+>>>>>>> 2849c13e34ba0b528775e2dfa2a02a40bf012b2a
 	
 	output reg [width_out - 1:0] data;
 	output reg read_opcode;
@@ -46,7 +52,12 @@ module state_machine(
 	always @(posedge clk)
 	begin
 		if (!reset)
+		begin
 			state <= READ_OPCODE;
+			memory_pointer <= 0; 
+			start_for_decoder <= 0;
+			data_for_decoder <= 0;
+		end
 		else 
 			state <= next_state;
 	end
@@ -85,6 +96,7 @@ module state_machine(
 				start_for_decoder = 1;
 				data_for_decoder = data;
 				send = 1;
+				memory_pointer = memory_pointer + 1;
 			end
 		endcase
 	end

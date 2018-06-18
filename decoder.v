@@ -6,6 +6,7 @@ module decoder(
 	instruction_in,
 	instruction_out,
 	start_for_memory,
+<<<<<<< HEAD
 	ready_for_memory,
 	
 	
@@ -15,10 +16,14 @@ module decoder(
 	next_state,
 	send,
 	done
+=======
+	address_for_memory
+>>>>>>> 2849c13e34ba0b528775e2dfa2a02a40bf012b2a
 );
 	parameter byte = 8;
-	parameter width_in = 4 * byte;
+	parameter width_in = 2 * byte;
 	parameter width_out = 4 * byte;
+	parameter address_size = 16;
 
 	parameter WAIT = 2'b00;
 	parameter RUNNING = 2'b01;
@@ -31,7 +36,7 @@ module decoder(
 	input [width_in - 1:0] instruction_in;
 	output reg [width_out - 1:0] instruction_out;
 	output reg start_for_memory;
-	input ready_for_memory;
+	output reg [address_size-1:0] address_for_memory;
 
 	output reg [2:0] counter;
 	output reg [1:0] state;
@@ -40,11 +45,20 @@ module decoder(
 	output reg done;
 
 	
-	
 	always @(posedge clk) 
 	begin 
 		if (!reset)
+		begin
 			state <= WAIT;
+			next_state <= WAIT;
+			ready <= 1;
+			address_for_memory <= 0;
+			done <= 0;
+			send <= 0;
+			start_for_memory <= 0;
+			instruction_out <= 0;
+			counter <= 0;
+		end
 		else
 			state <= next_state;
 	end
@@ -205,6 +219,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -538,17 +553,10 @@ module decoder(
 		end
 		SENDING:
 		begin
-			if (send) 
-			begin
-				if (ready_for_memory)
-				begin
-					start_for_memory = 0;
-					send = 0;
-					counter = counter + 1;
-				end
-				else
-					start_for_memory = 1;
-			end
+			start_for_memory = 0;
+			send = 0;
+			counter = counter + 1;
+			address_for_memory = address_for_memory + 1;
 		end
 		endcase
 	end
