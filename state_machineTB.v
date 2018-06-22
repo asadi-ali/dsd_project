@@ -2,7 +2,7 @@ module state_machineTB;
 
 	parameter byte = 8;
 	parameter width_in = 1 * byte;
-	parameter width_out = 2 * byte;
+	parameter width_out = 1 * byte;
 	parameter memory_size = 8;
 
 	reg clk;
@@ -12,7 +12,7 @@ module state_machineTB;
 	reg [width_in - 1:0] data_from_memory;
 	wire [width_out - 1:0] data_for_decoder;
 	
-	wire [memory_size:0] memory_pointer;
+	wire [memory_size - 1:0] memory_pointer;
 	wire [1:0] state;
 	wire [1:0] next_state;
 	wire [width_out - 1:0] data;
@@ -47,17 +47,15 @@ module state_machineTB;
 	
 		#10 reset = 1; ready_from_decoder = 1; data_from_memory = 8'b00000011; //iconst_0
 		
-		#15 data_from_memory = 8'b00000100; //iconst_1
+		#30 data_from_memory = 8'b00000100; //iconst_1
 		
-		#15 ready_from_decoder = 0; data_from_memory = 8'b01101111; //ddiv
+		#30 ready_from_decoder = 0; data_from_memory = 8'b01101111; //ddiv
 		
-		#5 ready_from_decoder = 1;
+		#30 ready_from_decoder = 1;
 		
-		#15 data_from_memory = 8'b10010001; //i2b
-		
-		#5 reset = 0;
-		
-		#15 reset = 1; data_from_memory = 8'b01010000; //lastore		
+		#30 data_from_memory = 8'b10010001; //i2b
+				
+		#30 data_from_memory = 8'b01010000; //lastore		
 		
 	end
 	

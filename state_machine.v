@@ -18,7 +18,7 @@ module state_machine(
 
 	parameter byte = 8;
 	parameter width_in = 1 * byte;
-	parameter width_out = 2 * byte;
+	parameter width_out = 1 * byte;
 	parameter memory_size = 8;
 
 	parameter READ_OPCODE = 2'b00;
@@ -83,7 +83,7 @@ module state_machine(
 				send = 0;
 				if (ready_from_decoder)
 				begin
-					data[width_out - 1:width_out - byte] = data_from_memory;
+					data = data_from_memory;
 				end
 			end
 			SEND:
@@ -98,4 +98,3 @@ module state_machine(
 	end
 
 endmodule 
-
