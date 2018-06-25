@@ -4,11 +4,11 @@ module state_machine(
 	ready_from_decoder, 
 	start_for_decoder, 
 	data_from_memory, 
-	data_for_decoder,
-	
-	
-	
+	data_for_decoder,	
 	memory_pointer,
+
+
+
 	state,
 	next_state,
 	data,
@@ -31,8 +31,8 @@ module state_machine(
 	output reg start_for_decoder;
 	input [width_in - 1:0] data_from_memory;
 	output reg [width_out - 1:0] data_for_decoder;
-
 	output reg [memory_size - 1:0] memory_pointer;
+
 	output reg [1:0] state;
 	output reg [1:0] next_state;
 	
