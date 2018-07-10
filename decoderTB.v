@@ -14,12 +14,6 @@ module decoderTB;
 	wire start_for_memory;
 	wire [address_size - 1:0] address_for_memory;
 	
-	wire [2:0] counter;
-	wire [1:0] state;
-	wire [1:0] next_state;
-	wire send;
-	wire done;
-	
 	decoder TB(
 		.clk(clk),
 		.reset(reset),
@@ -28,15 +22,7 @@ module decoderTB;
 		.instruction_in(instruction_in),
 		.instruction_out(instruction_out),
 		.start_for_memory(start_for_memory),
-		.address_for_memory(address_for_memory),
-		
-		
-		
-		.counter(counter),
-		.state(state),
-		.next_state(next_state),
-		.send(send),
-		.done(done)
+		.address_for_memory(address_for_memory)
 	);
 	
 	initial clk = 0;

@@ -6,15 +6,7 @@ module decoder(
 	instruction_in,
 	instruction_out,
 	start_for_memory,
-	address_for_memory,
-	
-	
-	
-	counter,
-	state,
-	next_state,
-	send,
-	done
+	address_for_memory
 );
 
 	parameter byte = 8;
@@ -35,13 +27,12 @@ module decoder(
 	output reg start_for_memory;
 	output reg [address_size - 1:0] address_for_memory;
 
-	output reg [2:0] counter;
-	output reg [1:0] state;
-	output reg [1:0] next_state;
-	output reg send;
-	output reg done;
+	reg [2:0] counter;
+	reg [1:0] state;
+	reg [1:0] next_state;
+	reg send;
+	reg done;
 
-	
 	always @(posedge clk) 
 	begin 
 		if (!reset)
@@ -99,13 +90,14 @@ module decoder(
 		RUNNING:
 		begin
 			ready = 0;
-			case(instruction_in[width_in - 1:width_in - byte])
+			case(instruction_in[7:0])
 			
 			8'b01101111: //ddiv
 			begin
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -116,7 +108,8 @@ module decoder(
 			begin
 				if (counter == 0)
 				begin
-					instruction_out = 32'b10010010000000010000010011100000;
+					instruction_out = 32'b10010010000000010000010011100111;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -128,6 +121,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -139,6 +133,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -150,6 +145,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -161,6 +157,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -172,6 +169,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -183,6 +181,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -194,6 +193,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -205,6 +205,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -228,6 +229,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -239,6 +241,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -250,6 +253,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -261,6 +265,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -272,6 +277,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -283,6 +289,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -294,6 +301,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -305,6 +313,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -316,6 +325,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -327,6 +337,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -338,6 +349,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -349,6 +361,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -360,6 +373,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -371,6 +385,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -382,6 +397,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -393,6 +409,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -404,6 +421,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -415,6 +433,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -426,6 +445,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -437,6 +457,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -448,6 +469,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -459,6 +481,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -470,6 +493,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -481,6 +505,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -492,6 +517,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -503,6 +529,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -514,6 +541,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -525,6 +553,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
@@ -536,6 +565,7 @@ module decoder(
 				if (counter == 0)
 				begin
 					instruction_out = 32'b10010010000000010000010011100000;
+					start_for_memory = 1;
 					send = 1;
 				end
 				if (counter == 1)
