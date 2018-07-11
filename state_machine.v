@@ -80,11 +80,14 @@ module state_machine(
 			end
 			SEND:
 			begin
-				read_opcode = 1;
-				start_for_decoder = 1;
-				data_for_decoder = data;
-				send = 1;
-				rom_address = rom_address + 1;
+				if (send == 0)
+				begin
+					read_opcode = 1;
+					start_for_decoder = 1;
+					data_for_decoder = data;
+					send = 1;
+					rom_address = rom_address + 1;
+				end
 			end
 		endcase
 	end
