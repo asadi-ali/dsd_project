@@ -12,6 +12,7 @@ module acceleratorTB;
 	wire [7:0] rom_address;
 	wire [7:0] data_from_rom;
 	wire [31:0]	instruction_in;
+	wire [31:0]	instruction_out;
 
 	
 	accelerator TB(
@@ -26,7 +27,8 @@ module acceleratorTB;
 		
 		.rom_address(rom_address),
 		.data_from_rom(data_from_rom),
-		.instruction_in(instruction_in)
+		.instruction_in(instruction_in),
+		.instruction_out(instruction_out)
 	);
 	
 	initial clk = 0;
@@ -41,7 +43,7 @@ module acceleratorTB;
 		
 		#15 rwn = 0;
 			
-		#2000 rwn = 1; address_test = 16'h0000;
+		#1000 rwn = 1; address_test = 16'h0000;
 		#100 rwn = 1; address_test = 16'h0001;
 		#100 rwn = 1; address_test = 16'h0002;
 		#100 rwn = 1; address_test = 16'h0003;

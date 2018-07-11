@@ -11,7 +11,7 @@ module memory(clk, reset, address_dec, address_test, data_in, data_out, rwn, sta
 	integer i;
 
 
-	always @(posedge clk or reset)
+	always @(posedge clk)
 	begin
 		if(~reset) begin
 			for(i=0; i<(2**memory_size); i=i+1) begin

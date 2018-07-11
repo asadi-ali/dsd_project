@@ -113,6 +113,12 @@ module decoder(
 					send = 1;
 				end
 				if (counter == 1)
+				begin
+					instruction_out = 32'b10010010000000010000010011100110;
+					start_for_memory = 1;
+					send = 1;
+				end
+				if (counter == 2)
 					done = 1;
 			end
 			

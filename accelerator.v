@@ -7,7 +7,8 @@ module accelerator(
 	
 	rom_address,
 	data_from_rom,
-	instruction_in
+	instruction_in,
+	instruction_out
 );
 
 	parameter address_size = 16;
@@ -36,6 +37,9 @@ module accelerator(
 	
 	output [31:0] instruction_in;
 	assign instruction_in = data_state_dec;
+	
+	output [31:0] instruction_out;
+	assign instruction_out = data_dec_mem;
 	
 	rom r(.address(adr_rom_state), .data(data_rom_state));
 
