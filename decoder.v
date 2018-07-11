@@ -33,19 +33,11 @@ module decoder(
 	reg send;
 	reg done;
 
-	always @(posedge clk) 
-	begin 
+	always @(posedge clk)
+	begin
 		if (!reset)
 		begin
 			state <= WAIT;
-			next_state <= WAIT;
-			ready <= 1;
-			address_for_memory <= 0;
-			done <= 0;
-			send <= 0;
-			start_for_memory <= 0;
-			instruction_out <= 0;
-			counter <= 0;
 		end
 		else
 			state <= next_state;
@@ -62,7 +54,7 @@ module decoder(
 		end
 		RUNNING:
 		begin
-			if (send) 
+			if (send)
 				next_state = SENDING;
 			else if(done)
 				next_state = WAIT;
@@ -77,6 +69,18 @@ module decoder(
 
 	always @(*)
 	begin
+        if (!reset)
+        begin
+			next_state = WAIT;
+			ready = 1;
+			address_for_memory = 0;
+			done = 0;
+			send = 0;
+			start_for_memory = 0;
+			instruction_out = 0;
+			counter = 0;
+        end
+
 		case (state)
 		WAIT:
 		begin
@@ -91,7 +95,7 @@ module decoder(
 		begin
 			ready = 0;
 			case(instruction_in[7:0])
-			
+
 			8'b01101111: //ddiv
 			begin
 				if (counter == 0)
@@ -103,7 +107,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00011000: //dload
 			begin
 				if (counter == 0)
@@ -121,7 +125,7 @@ module decoder(
 				if (counter == 2)
 					done = 1;
 			end
-			
+
 			8'b00100110: //dload_0
 			begin
 				if (counter == 0)
@@ -133,7 +137,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00100111: //dload_1
 			begin
 				if (counter == 0)
@@ -145,7 +149,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00101000: //dload_2
 			begin
 				if (counter == 0)
@@ -157,7 +161,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00101001: //dload_3
 			begin
 				if (counter == 0)
@@ -169,7 +173,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01101011: //dmul
 			begin
 				if (counter == 0)
@@ -181,7 +185,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01110111: //dneg
 			begin
 				if (counter == 0)
@@ -193,7 +197,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01110011: //drem
 			begin
 				if (counter == 0)
@@ -205,7 +209,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10101111: //dreturn
 			begin
 				if (counter == 0)
@@ -217,7 +221,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10010001: //i2b
 			begin
 				if (counter == 0)
@@ -229,7 +233,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10010010: //i2c
 			begin
 				if (counter == 0)
@@ -241,7 +245,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10000111: //i2d
 			begin
 				if (counter == 0)
@@ -253,7 +257,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10000110: //i2f
 			begin
 				if (counter == 0)
@@ -265,7 +269,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10000101: //i2l
 			begin
 				if (counter == 0)
@@ -277,7 +281,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10010011: //i2s
 			begin
 				if (counter == 0)
@@ -289,7 +293,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01100000: //iadd
 			begin
 				if (counter == 0)
@@ -301,7 +305,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00101110: //iaload
 			begin
 				if (counter == 0)
@@ -313,7 +317,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01111110: //iand
 			begin
 				if (counter == 0)
@@ -325,7 +329,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01001111: //iastore
 			begin
 				if (counter == 0)
@@ -337,7 +341,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00000011: //iconst_0
 			begin
 				if (counter == 0)
@@ -349,7 +353,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00000100: //iconst_1
 			begin
 				if (counter == 0)
@@ -361,7 +365,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00000101: //iconst_2
 			begin
 				if (counter == 0)
@@ -373,7 +377,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00000110: //iconst_3
 			begin
 				if (counter == 0)
@@ -385,7 +389,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00000111: //iconst_4
 			begin
 				if (counter == 0)
@@ -397,7 +401,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00001000: //iconst_5
 			begin
 				if (counter == 0)
@@ -409,7 +413,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10000000: //ior
 			begin
 				if (counter == 0)
@@ -421,7 +425,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01110000: //irem
 			begin
 				if (counter == 0)
@@ -433,7 +437,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10101100: //ireturn
 			begin
 				if (counter == 0)
@@ -445,7 +449,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01111000: //ishl
 			begin
 				if (counter == 0)
@@ -457,7 +461,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10001010: //l2d
 			begin
 				if (counter == 0)
@@ -469,7 +473,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10001001: //l2f
 			begin
 				if (counter == 0)
@@ -481,7 +485,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10001000: //l2i
 			begin
 				if (counter == 0)
@@ -493,7 +497,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01100001: //ladd
 			begin
 				if (counter == 0)
@@ -505,7 +509,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00101111: //laload
 			begin
 				if (counter == 0)
@@ -517,7 +521,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01111111: //land
 			begin
 				if (counter == 0)
@@ -529,7 +533,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b01010000: //lastore
 			begin
 				if (counter == 0)
@@ -541,7 +545,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b10010100: //lcmp
 			begin
 				if (counter == 0)
@@ -553,7 +557,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b00001001: //lconst_0
 			begin
 				if (counter == 0)
@@ -565,7 +569,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			8'b	00001010: //lconst_1
 			begin
 				if (counter == 0)
@@ -577,7 +581,7 @@ module decoder(
 				if (counter == 1)
 					done = 1;
 			end
-			
+
 			default:
 			begin
 				done = 1;
@@ -593,4 +597,4 @@ module decoder(
 		end
 		endcase
 	end
-endmodule 
+endmodule

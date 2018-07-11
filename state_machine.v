@@ -1,10 +1,10 @@
 module state_machine(
-	clk, 
-	reset, 
-	ready_from_decoder, 
-	start_for_decoder, 
-	data_from_rom, 
-	data_for_decoder,	
+	clk,
+	reset,
+	ready_from_decoder,
+	start_for_decoder,
+	data_from_rom,
+	data_for_decoder,
 	rom_address
 );
 
@@ -27,22 +27,18 @@ module state_machine(
 
 	reg [1:0] state;
 	reg [1:0] next_state;
-	
+
 	reg [width_out - 1:0] data;
 	reg read_opcode;
 	reg send;
-
 
 	always @(posedge clk)
 	begin
 		if (!reset)
 		begin
 			state <= READ_OPCODE;
-			rom_address <= 0; 
-			start_for_decoder <= 0;
-			data_for_decoder <= 0;
 		end
-		else 
+		else
 		begin
 			state <= next_state;
 			read_opcode = 1;
@@ -68,6 +64,13 @@ module state_machine(
 
 	always @(*)
 	begin
+        if (!reset)
+        begin
+			rom_address = 0;
+			start_for_decoder = 0;
+			data_for_decoder = 0;
+        end
+
 		case (state)
 			READ_OPCODE:
 			begin
@@ -92,4 +95,4 @@ module state_machine(
 		endcase
 	end
 
-endmodule 
+endmodule
