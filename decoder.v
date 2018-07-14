@@ -224,206 +224,636 @@ module decoder(
 
 			8'b10010001: //i2b
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101000001011110000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101000001011110000011011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4)
+                                done = 1;
 			end
 
 			8'b10010010: //i2c
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101000001011100000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101000001011100000101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4)
+                                done = 1;
 			end
 
 			8'b10000111: //i2d
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100001110010101010000000001010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101000001011000010101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b00111010000000000000000000000101;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100010100000001011000100000010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5) begin
+                                instruction_out = 32'b11100001111000001011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 6) begin
+                                instruction_out = 32'b11100010100000001011000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 7) begin
+                                instruction_out = 32'b11100010100000001010000100000010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 8) begin
+                                instruction_out = 32'b11100011101100000001000000100000;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 9) begin
+                                instruction_out = 32'b11100010010100010001000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 10) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 11) begin
+                                instruction_out = 32'b00111010111111111111111111111110;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 12) begin
+                                instruction_out = 32'b11100011101100000010000000010100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 13) begin
+                                instruction_out = 32'b11100001110000110011000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 14) begin
+                                instruction_out = 32'b11100001110001000100000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 15) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 16) begin
+                                instruction_out = 32'b11100000101001000011000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 17) begin
+                                instruction_out = 32'b11100001101000000011000010000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 18) begin
+                                instruction_out = 32'b11100010010100100010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 19) begin
+                                instruction_out = 32'b11100010010100100010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 20) begin
+                                instruction_out = 32'b11100001101000000011000010100011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 21) begin
+                                instruction_out = 32'b11100000100010101010000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 22) begin
+                                instruction_out = 32'b11100010100000000001101100000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 23) begin
+                                instruction_out = 32'b11100001101000000001101000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 24) begin
+                                instruction_out = 32'b11100000100010101010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 25)
+                                done = 1;
 			end
 
 			8'b10000110: //i2f
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001110000110011000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100001101000001011000010101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100001101000001011000010101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5) begin
+                                instruction_out = 32'b11100010100000001011000100000010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 6) begin
+                                instruction_out = 32'b11100001111000001011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 7) begin
+                                instruction_out = 32'b11100010100000001011000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 8) begin
+                                instruction_out = 32'b11100010100000000011000100000010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 9) begin
+                                instruction_out = 32'b11100011101100000001000000100000;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 10) begin
+                                instruction_out = 32'b11100010010100010001000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 11) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 12) begin
+                                instruction_out = 32'b11100001101100001011000010001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 13) begin
+                                instruction_out = 32'b11100011101100000010000000001001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 14) begin
+                                instruction_out = 32'b11100001101100001011000010101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 15) begin
+                                instruction_out = 32'b11100010010100100010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 16) begin
+                                instruction_out = 32'b11100010010100100010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 17) begin
+                                instruction_out = 32'b11100010100000000001000010000000;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 18) begin
+                                instruction_out = 32'b11100001101000000001101110000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 19) begin
+                                instruction_out = 32'b11100000100010101010000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 20) begin
+                                instruction_out = 32'b11100000100010101010000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 21) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 22)
+                                done = 1;
 			end
 
 			8'b10000101: //i2l
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001110010101010000000001010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101100001011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b01011010000000000000000000000101;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100001111000001010000000010101;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 5) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 6)
+                                done = 1;
 			end
 
 			8'b10010011: //i2s
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101000001011100000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100001101000001011100000101011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4)
+                                done = 1;
 			end
 
 			8'b01100000: //iadd
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100000100000011011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5)
+                                done = 1;
 			end
 
 			8'b00101110: //iaload
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100111100100011011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5)
+                                done = 1;
 			end
 
 			8'b01111110: //iand
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100000000000011011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5)
+                                done = 1;
 			end
 
 			8'b01001111: //iastore
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100000000000010001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 5) begin
+                                instruction_out = 32'b11100101100000011011000000000000;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 6)
+                                done = 1;
 			end
 
 			8'b00000011: //iconst_0
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000000;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b00000100: //iconst_1
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b00000101: //iconst_2
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000010;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b00000110: //iconst_3
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b00000111: //iconst_4
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b00001000: //iconst_5
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100011101100001011000000000101;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2)
+                                done = 1;
 			end
 
 			8'b10000000: //ior
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100001100000011011000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5)
+                                done = 1;
 			end
 
 			8'b01110000: //irem
@@ -452,14 +882,34 @@ module decoder(
 
 			8'b01111000: //ishl
 			begin
-				if (counter == 0)
-				begin
-					instruction_out = 32'b10010010000000010000010011100000;
-					start_for_memory = 1;
-					send = 1;
-				end
-				if (counter == 1)
-					done = 1;
+                            if (counter == 0) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 1) begin
+                                instruction_out = 32'b11100001101100000001000000001011;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 2) begin
+                                instruction_out = 32'b11100101001111011011000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 3) begin
+                                instruction_out = 32'b11100001101000001011101100010001;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+
+                            if (counter == 4) begin
+                                instruction_out = 32'b11100101001111011010000000000100;
+                                start_for_memory = 1;
+                                send = 1;
+                            end
+                            if (counter == 5)
+                                done = 1;
 			end
 
 			8'b10001010: //l2d
